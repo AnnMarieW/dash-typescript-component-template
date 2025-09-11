@@ -1,7 +1,7 @@
 import {{cookiecutter.project_shortname}}
 import dash
 
-app = dash.Dash(__name__)
+app = dash.Dash()
 
 app.layout = {{cookiecutter.project_shortname}}.{{cookiecutter.component_name}}(id='component')
 

@@ -41,11 +41,39 @@ pip install {{cookiecutter.project_shortname}}
 
 ### Publish
 
-If publish on npm:
-```shell
-npm build
-npm publish
+1. Clean up build and  dist - removes old and temp tarballs:
 ```
+rm -rf dist build
+```
+
+
+2. Run a new build
+```
+npm install
+npm run build
+```
+
+2. Build source distribution.  
+```
+npm run dist
+```
+
+3. Test your tarball by copying it into a new environment and installing it locally, for example:
+```
+pip install <your-project-name-version>.tar.gz
+```
+
+Note:  For local install, use  `pip install -e ./path-to-project`
+
+4. Prepare release on the GitHub UI - For more information see [Managing Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository)
+When in doubt, do an alpha release first
+
+5. Publish on PyPI
+```
+$ twine upload dist/*
+```
+
+
 
 ### Justfile
 

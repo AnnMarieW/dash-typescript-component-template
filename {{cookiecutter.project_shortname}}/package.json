@@ -18,7 +18,9 @@
     "build:js": "webpack",
     "build:backends": "dash-generate-components ./src/ts/components {{ cookiecutter.project_shortname }} -p package-info.json  --ignore \\.test\\.",
     "build": "npm run build:js && npm run build:backends",
-    "watch": "npm run build:js::dev -- --watch"
+    "watch": "npm run build:js::dev -- --watch",
+    "dist": "python -m build --sdist --wheel --outdir dist/",
+    "format":  "prettier --write src --ignore-path=.prettierignore"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
